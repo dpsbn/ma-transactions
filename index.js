@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser')
 const cors = require('cors');
+require('dotenv').config();
 
 const db = mysql.createConnection({
   host        :  process.env.DB_HOST,
@@ -96,6 +97,6 @@ app.get('/api/get-transactions', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log('server started')
+  console.log('server started on port'+process.env.PORT)
 })
 
