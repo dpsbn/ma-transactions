@@ -50,6 +50,7 @@ app.post('/api/add-transaction', (req, res) => {
       orbit_id,
       tombstone_top_image,
       tombstone_bottom_image,
+      office,
       updated_at
     } = req.body
     console.log({req: req})
@@ -76,6 +77,7 @@ app.post('/api/add-transaction', (req, res) => {
       orbit_id,
       tombstone_top_image,
       tombstone_bottom_image,
+      office,
     ]]], (err, result) => {
       if(err){
           console.log(err);
