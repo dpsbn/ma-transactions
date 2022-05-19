@@ -46,14 +46,14 @@ app.post('/api/add-transaction', (req, res) => {
       transaction_excerpt,
       keyphrase,
       meta_description,
+      updated_at,
       created_by,
       orbit_id,
       tombstone_top_image,
       tombstone_bottom_image,
-      office,
-      updated_at
+      member_office,
     } = req.body
-    console.log({req: req})
+    console.log(req.body)
     const sqlInsert = "INSERT INTO transactions VALUES ?";
     db.query(sqlInsert, [[[
       null,
@@ -72,12 +72,12 @@ app.post('/api/add-transaction', (req, res) => {
       transaction_excerpt,
       keyphrase,
       meta_description,
-      new Date(),
+      updated_at || new Date(),
       created_by,
       orbit_id,
       tombstone_top_image,
       tombstone_bottom_image,
-      office,
+      member_office,
     ]]], (err, result) => {
       if(err){
           console.log(err);
@@ -105,4 +105,5 @@ app.get('/api/get-transactions', (req, res) => {
 app.listen(port, () => {
   console.log('server started on port'+process.env.PORT)
 })
+
 
