@@ -48,6 +48,8 @@ app.post('/api/add-transaction', (req, res) => {
       meta_description,
       created_by,
       orbit_id,
+      tombstone_top_image,
+      tombstone_bottom_image,
       updated_at
     } = req.body
     console.log({req: req})
@@ -72,6 +74,8 @@ app.post('/api/add-transaction', (req, res) => {
       new Date(),
       created_by,
       orbit_id,
+      tombstone_top_image,
+      tombstone_bottom_image,
     ]]], (err, result) => {
       if(err){
           console.log(err);
